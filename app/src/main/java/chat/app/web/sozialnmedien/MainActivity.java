@@ -1,14 +1,11 @@
 package chat.app.web.sozialnmedien;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.os.Intent;
-import android.graphics.Bitmap;
-import android.net.Uri;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.webkit.WebResourceRequest;
-
 import chat.app.web.sozialnmedien.R;
 import chat.app.web.sozialnmedien.WebAppInterface;
 
@@ -37,18 +34,17 @@ public class MainActivity extends Activity {
         this.wv.getSettings().setDomStorageEnabled(true);
         
         // custom Webview client
-        this.wv.setWebViewClient(new MyWebViewClient() {
+        this.wv.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-                if ("sozialnmedien.web.app".equalsIgnoreCase(request.getUrl().getHost()) ||
-                    "sozialnmedien.firebaseapp.com".equalsIgnoreCase(request.getUrl().getHost())) {
-                    // This is my website, so do not override; let my WebView load the page
-                    return false;
+                if (!request.getUrl().getHost().contains("sozialnmedien.web.app") &&
+                    !request.getUrl().getHost().contains("sozialnmedien.firebaseapp.com")) {
+                    // the link is not for a page on my site, so launch another Activity that handles URLs
+                    Intent intent = new Intent(Intent.ACTION_VIEW, request.getUrl());
+                    MainActivity.this.startActivity(intent);
+                    return true;
                 }
-                // Otherwise, the link is not for a page on my site, so launch another Activity that handles URLs
-                Intent intent = new Intent(Intent.ACTION_VIEW, request.getUrl());
-                MainActivity.this.startActivity(intent);
-                return true;
+                return false;
             }
         });
         

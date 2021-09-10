@@ -1,10 +1,9 @@
 package chat.app.web.sozialnmedien;
 
-import android.content.ClipData;
-import android.content.Intent;
 import android.content.Context;
 import android.text.ClipboardManager;
 import android.webkit.JavascriptInterface;
+import android.widget.Toast;
 
 public class WebAppInterface {
     Context mContext;
