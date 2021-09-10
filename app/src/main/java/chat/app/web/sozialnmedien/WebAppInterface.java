@@ -13,7 +13,7 @@ public class WebAppInterface {
     }
     
     @JavascriptInterface
-    public boolean isDefWebapp() {
+    public boolean isSozialnMedienWebapp() {
         return true;
     }
     
