@@ -1,11 +1,19 @@
 package chat.app.web.sozialnmedien;
 
 import android.app.Activity;
+import android.app.DownloadManager;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.webkit.DownloadListener;
+import android.webkit.URLUtil;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
+
+// other classes
 import chat.app.web.sozialnmedien.R;
 import chat.app.web.sozialnmedien.WebAppInterface;
 
@@ -50,6 +58,28 @@ public class MainActivity extends Activity {
         
         // load webpage
         this.wv.loadUrl("https://sozialnmedien.web.app/chat");
+
+        this.wv.setDownloadListener(new DownloadListener() {
+            @Override
+            public void onDownloadStart(String url, String userAgent,
+                                        String contentDisposition, String mimeType,
+                                        long contentLength) {
+                DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
+                request.setMimeType(mimeType);
+                request.addRequestHeader("User-Agent", userAgent);
+                request.setDescription("File download started...");
+                request.setTitle(URLUtil.guessFileName(url, contentDisposition, mimeType));
+                // ignored since API 29
+                request.allowScanningByMediaScanner();
+                // Notify client once download is completed!
+                request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, URLUtil.guessFileName(url, contentDisposition, mimeType));
+                DownloadManager dm = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+                dm.enqueue(request);
+                // To notify the client that the file is being downloaded
+                Toast.makeText(getApplicationContext(), "Downloading File", Toast.LENGTH_LONG).show();
+            }
+        });
     }
     
     // on back button pressed
