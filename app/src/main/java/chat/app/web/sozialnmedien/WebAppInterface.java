@@ -58,7 +58,7 @@ public class WebAppInterface {
         request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI |
                                        DownloadManager.Request.NETWORK_MOBILE);
         // set title and description
-        request.setTitle(filename + " - Download Manager");
+        request.setTitle(filename);
         request.setDescription("Source: " + url);
         // ignored by API 29, deprecated before 29
         request.allowScanningByMediaScanner();
