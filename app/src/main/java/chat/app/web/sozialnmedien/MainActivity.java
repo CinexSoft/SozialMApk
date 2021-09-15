@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.content.Context;
 import android.content.Intent;
+import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -38,6 +39,9 @@ public class MainActivity extends Activity {
         this.wv.getSettings().setAllowFileAccess(true);
         this.wv.getSettings().setDatabaseEnabled(true);
         this.wv.getSettings().setDomStorageEnabled(true);
+        
+        // adding the WebChromeClient
+        this.wv.setWebChromeClient(new WebChromeClient());
         
         // custom Webview client
         this.wv.setWebViewClient(new WebViewClient() {
