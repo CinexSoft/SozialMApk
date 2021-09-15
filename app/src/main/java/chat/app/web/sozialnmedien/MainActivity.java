@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.content.Context;
 import android.content.Intent;
+import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -39,13 +40,16 @@ public class MainActivity extends Activity {
         this.wv.getSettings().setDatabaseEnabled(true);
         this.wv.getSettings().setDomStorageEnabled(true);
         
+        // adding the WebChromeClient
+        this.wv.setWebChromeClient(new WebChromeClient());
+        
         // custom Webview client
         this.wv.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
                 if (!request.getUrl().getHost().contains("sozialnmedien.web.app")
                  && !request.getUrl().getHost().contains("sozialnmedien.firebaseapp.com")
-                 && !request.getUrl().getHost().contains("localhost:5000")) {
+                 && !request.getUrl().getHost().contains("localhost")) {
                     // the link is not for a page on my site, so launch another Activity that handles URLs
                     Intent intent = new Intent(Intent.ACTION_VIEW, request.getUrl());
                     MainActivity.this.startActivity(intent);
