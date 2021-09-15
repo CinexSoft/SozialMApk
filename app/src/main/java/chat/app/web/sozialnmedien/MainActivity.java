@@ -45,7 +45,7 @@ public class MainActivity extends Activity {
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
                 if (!request.getUrl().getHost().contains("sozialnmedien.web.app")
                  && !request.getUrl().getHost().contains("sozialnmedien.firebaseapp.com")
-                 && !request.getUrl().getHost().contains("localhost:5000")) {
+                 && !request.getUrl().getHost().contains("localhost")) {
                     // the link is not for a page on my site, so launch another Activity that handles URLs
                     Intent intent = new Intent(Intent.ACTION_VIEW, request.getUrl());
                     MainActivity.this.startActivity(intent);
