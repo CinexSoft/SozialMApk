@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    package="chat.app.web.sozialnmedien"
-    android:versionCode="2"
-    android:versionName="2021.09.15.14.50">
+    package="app.web.sozialnmedien"
+    android:versionCode="1"
+    android:versionName="2021.09.20.16.50">
     <uses-sdk
         android:minSdkVersion="21"
         android:targetSdkVersion="27" />

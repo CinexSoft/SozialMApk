@@ -60,8 +60,7 @@ public class MainActivity extends Activity {
         });
         
         // load webpage
-        // this.wv.loadUrl("localhost:5000/chat");
-        this.wv.loadUrl("https://sozialnmedien.web.app/chat");
+        this.wv.loadUrl("https://sozialnmedien.web.app");
     }
     
     // on back button pressed
