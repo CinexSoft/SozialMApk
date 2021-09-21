@@ -2,8 +2,8 @@
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="app.web.sozialnmedien"
-    android:versionCode="1"
-    android:versionName="2021.09.20.16.50">
+    android:versionCode="2"
+    android:versionName="2021.09.22.00.45">
     <uses-sdk
         android:minSdkVersion="21"
         android:targetSdkVersion="27" />
