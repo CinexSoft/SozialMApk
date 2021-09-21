@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    package="app.web.sozialnmedien"
+    package="app.web.sozialnmedien.localhost"
     android:versionCode="1"
     android:versionName="2021.09.20.16.50">
     <uses-sdk
@@ -12,7 +12,7 @@
 	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.webkit.PermissionRequest" />
     <application
-        android:label="Chat"
+        android:label="LocalHost"
         android:allowBackup="true"
         android:largeHeap="true"
         android:icon="@drawable/ic_launcher"

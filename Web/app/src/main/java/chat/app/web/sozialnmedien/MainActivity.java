@@ -47,7 +47,8 @@ public class MainActivity extends Activity {
         this.wv.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-                if (!request.getUrl().getHost().contains("sozialnmedien.web.app")
+                if (request.getUrl().getHost() != null
+                 && !request.getUrl().getHost().contains("sozialnmedien.web.app")
                  && !request.getUrl().getHost().contains("sozialnmedien.firebaseapp.com")
                  && !request.getUrl().getHost().contains("localhost")) {
                     // the link is not for a page on my site, so launch another Activity that handles URLs
