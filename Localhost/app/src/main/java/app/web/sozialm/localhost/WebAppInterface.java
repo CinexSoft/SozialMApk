@@ -1,4 +1,4 @@
-package chat.app.web.sozialnmedien;
+package app.web.sozialm.localhost;
 
 import android.text.ClipboardManager;
 import android.content.Context;
@@ -22,7 +22,7 @@ public class WebAppInterface {
     }
     
     @JavascriptInterface
-    public boolean isSozialnMedienWebapp() {
+    public boolean isSozialMWebapp() {
         return true;
     }
     
@@ -39,7 +39,7 @@ public class WebAppInterface {
         }
         int currentVerCode = 0;
         try {
-            URL url = new URL("https://sozialnmedien.web.app/records/currentapkversion");
+            URL url = new URL("https://sozialm.web.app/records/currentapkversion");
             Scanner sc = new Scanner(url.openStream());
             currentVerCode = sc.nextInt();
             sc.close();

@@ -1,4 +1,4 @@
-package chat.app.web.sozialnmedien;
+package app.web.sozialm.localhost;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,8 +9,8 @@ import android.os.Bundle;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import chat.app.web.sozialnmedien.R;
-import chat.app.web.sozialnmedien.WebAppInterface;
+import app.web.sozialm.localhost.R;
+import app.web.sozialm.localhost.WebAppInterface;
 
 public class MainActivity extends Activity {
     
@@ -49,8 +49,8 @@ public class MainActivity extends Activity {
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 if (url != null
                 && (url.startsWith("http:") || url.startsWith("https:"))
-                && !url.contains("sozialnmedien.web.app")
-                && !url.contains("sozialnmedien.firebaseapp.com")
+                && !url.contains("sozialm.web.app")
+                && !url.contains("sozialm.firebaseapp.com")
                 && !url.contains("localhost")) {
                     // the link is not for a page on my site, so launch another Activity that handles URLs
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
